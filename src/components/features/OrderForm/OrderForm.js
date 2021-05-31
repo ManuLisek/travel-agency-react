@@ -4,14 +4,16 @@ import OrderSummary from '../OrderSummary/OrderSummary';
 import PropTypes from 'prop-types';
 import OrderOption from '../OrderOption/OrderOption';
 import pricing from '../../../data/pricing';
-import { setOrderOption } from '../../../redux/orderRedux';
 
 const OrderForm = props => (
 
   <Row>
     {pricing.map(option => (
       <Col md={4} key={option.id}>
-        <OrderOption  {...option} currentValue={props.options[option.id]} setOrderOption={setOrderOption}/>
+        <OrderOption  
+          {...option} 
+          currentValue={props.options[option.id]} 
+          setOrderOption={props.setOrderOption}/>
       </Col>
     ))}
     <Col xs={12}>
